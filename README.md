@@ -1,5 +1,7 @@
 # Project Overview: Annapurna
 
+[![Download APK](https://img.shields.io/badge/Download_APK-v1.0-2EA44F?style=for-the-badge&logo=android&logoColor=white)](https://github.com/ShashankS1011/Annapurna/releases/download/v1.0/app-debug.apk)
+
 **Annapurna** — named after the Hindu Goddess of Food and Nourishment (*Anna* meaning food, and *Purna* meaning complete or perfect) — is an enterprise-grade, native Android application engineered to function as a permanent digital repository and active cooking assistant. The application honors the warmth, heritage, and emotional connection of home-cooked meals by providing a sacred, secure space to safeguard treasured family recipes.
 
 By bridging traditional home culinary heritage with modern software engineering, Annapurna ensures that sacred family formulas, cherished home-cooked meals, step-by-step preparation notes, and high-definition video walkthroughs remain fully accessible, privacy-focused, and permanently stored on the local device.

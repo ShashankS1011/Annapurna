@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ic_handi_logo.xml
+    Standalone Indian Handi Icon for Annapurna (Compliant with Android VectorDrawable AAPT)
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp"
+    android:height="120dp"
+    android:viewportWidth="100"
+    android:viewportHeight="100">
+
+    <!-- Heritage Background Circle -->
+    <path
+        android:fillColor="#8C2D19"
+        android:pathData="M50,2 C76.5,2 98,23.5 98,50 C98,76.5 76.5,98 50,98 C23.5,98 2,76.5 2,50 C2,23.5 23.5,2 50,2 Z" />
+
+    <!-- Outer Accent Ring (Replaced unsupported strokeDasharray with solid stroke) -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#E2A036"
+        android:strokeWidth="1.5"
+        android:pathData="M50,6 C74.3,6 94,25.7 94,50 C94,74.3 74.3,94 50,94 C25.7,94 6,74.3 6,50 C6,25.7 25.7,6 50,6 Z" />
+
+    <!-- Aromatic Steam Waves -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#FAF8F5"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:pathData="M42,28 C40,22 45,20 43,15" />
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#E2A036"
+        android:strokeWidth="2.5"
+        android:strokeLineCap="round"
+        android:pathData="M50,26 C48,18 54,16 51,11" />
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#FAF8F5"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:pathData="M58,28 C56,22 61,20 59,15" />
+
+    <!-- Flared Top Rim (Outer Brass Lip) -->
+    <path
+        android:fillColor="#E2A036"
+        android:pathData="M50,30 C64.3,30 76,32.7 76,36 C76,39.3 64.3,42 50,42 C35.7,42 24,39.3 24,36 C24,32.7 35.7,30 50,30 Z" />
+
+    <!-- Inner Mouth Opening -->
+    <path
+        android:fillColor="#5C1D0F"
+        android:pathData="M50,31 C62.7,31 73,32.8 73,35 C73,37.2 62.7,39 50,39 C37.3,39 27,37.2 27,35 C27,32.8 37.3,31 50,31 Z" />
+
+    <!-- Neck Transition -->
+    <path
+        android:fillColor="#D48B28"
+        android:pathData="M27,36 C29,42 32,46 32,48 L68,48 C68,46 71,42 73,36 Z" />
+
+    <!-- Bulbous Body -->
+    <path
+        android:fillColor="#E2A036"
+        android:pathData="M32,48 C18,52 16,74 34,82 C42,85 58,85 66,82 C84,74 82,52 68,48 Z" />
+
+    <!-- Body Accent Shading -->
+    <path
+        android:fillColor="#C47A1E"
+        android:pathData="M34,82 C42,85 58,85 66,82 C80,75 80,58 68,54 C60,65 40,65 32,54 C20,58 20,75 34,82 Z" />
+
+    <!-- Side Handles -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#E2A036"
+        android:strokeWidth="3"
+        android:strokeLineCap="round"
+        android:pathData="M22,42 C16,42 16,50 24,50" />
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#E2A036"
+        android:strokeWidth="3"
+        android:strokeLineCap="round"
+        android:pathData="M78,42 C84,42 84,50 76,50" />
+
+    <!-- Center Traditional Motif Outer Circle (cx=50, cy=65, r=4) -->
+    <path
+        android:fillColor="#8C2D19"
+        android:pathData="M50,61 A4,4 0 1,1 50,69 A4,4 0 1,1 50,61 Z" />
+
+    <!-- Center Traditional Motif Inner Circle (cx=50, cy=65, r=2) -->
+    <path
+        android:fillColor="#FAF8F5"
+        android:pathData="M50,63 A2,2 0 1,1 50,67 A2,2 0 1,1 50,63 Z" />
+
+</vector>

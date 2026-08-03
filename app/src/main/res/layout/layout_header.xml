@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    layout_header.xml
+    Reusable header component containing time-based greeting, app title, and inspirational quote.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingStart="@dimen/spacing_medium"
+    android:paddingTop="@dimen/spacing_medium"
+    android:paddingEnd="@dimen/spacing_medium"
+    android:paddingBottom="@dimen/spacing_small">
+
+    <!-- Dynamic Greeting (e.g., Good Morning / Good Evening) -->
+    <TextView
+        android:id="@+id/txtGreeting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-medium"
+        android:textColor="@color/text_secondary"
+        android:textSize="@dimen/text_subheading"
+        android:text="Good Evening" />
+
+    <!-- App Title Name -->
+    <TextView
+        android:id="@+id/txtAppName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_xxsmall"
+        android:fontFamily="sans-serif-bold"
+        android:text="Annapurna"
+        android:textColor="@color/primary"
+        android:textSize="@dimen/text_header"
+        android:textStyle="bold" />
+
+    <!-- Rotating Welcome Quote -->
+    <TextView
+        android:id="@+id/txtWelcomeQuote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_xxsmall"
+        android:fontFamily="sans-serif-light"
+        android:text="What's cooking today?"
+        android:textColor="@color/text_secondary"
+        android:textSize="@dimen/text_body" />
+
+</LinearLayout>

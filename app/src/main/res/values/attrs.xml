@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Custom Attributes for Annapurna Theme Customization -->
+    <attr name="kitchenPrimary" format="color" />
+    <attr name="kitchenPrimaryDark" format="color" />
+    <attr name="kitchenAccent" format="color" />
+    <attr name="kitchenBg" format="color" />
+    <attr name="kitchenTextMain" format="color" />
+    <attr name="kitchenTextSecondary" format="color" />
+</resources>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    item_category.xml
+    Layout for individual category filter chips in horizontal RecyclerView.
+-->
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardCategory"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/spacing_xxsmall"
+    android:layout_marginEnd="@dimen/spacing_small"
+    android:layout_marginTop="@dimen/spacing_xxsmall"
+    android:layout_marginBottom="@dimen/spacing_xxsmall"
+    app:cardCornerRadius="@dimen/radius_chip"
+    app:cardElevation="@dimen/elevation_card_low"
+    app:cardBackgroundColor="@color/card_bg"
+    app:strokeColor="@color/divider"
+    app:strokeWidth="1dp">
+
+    <TextView
+        android:id="@+id/txtCategoryName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/spacing_medium"
+        android:paddingTop="@dimen/spacing_xsmall"
+        android:paddingEnd="@dimen/spacing_medium"
+        android:paddingBottom="@dimen/spacing_xsmall"
+        android:fontFamily="sans-serif-medium"
+        android:text="Breakfast"
+        android:textColor="@color/text_primary"
+        android:textSize="@dimen/text_body" />
+
+</com.google.android.material.card.MaterialCardView>

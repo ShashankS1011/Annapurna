@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    res/values-night/colors.xml
+    Dark Theme Palette for Annapurna.
+-->
+<resources>
+
+    <!-- ========================= -->
+    <!-- Default Brand Theme (Dark) -->
+    <!-- ========================= -->
+    <color name="primary">#FF9800</color>
+    <color name="primaryDark">#F57C00</color>
+    <color name="primaryLight">#FFE0B2</color>
+
+    <!-- ========================= -->
+    <!-- Kitchen Theme Palette -->
+    <!-- ========================= -->
+    <color name="kesar">#FF9800</color>
+    <color name="tulsi">#4CAF50</color>
+    <color name="mitti">#8D6E63</color>
+    <color name="masala">#E53935</color>
+    <color name="haldi">#FBC02D</color>
+
+    <!-- ========================= -->
+    <!-- Theme Surfaces & Cards -->
+    <!-- ========================= -->
+    <color name="bg_main">#121212</color>          <!-- Pure Dark Background -->
+    <color name="card_bg">#1E1E1E</color>         <!-- Dark Card Surface -->
+    <color name="input_bg">#2C2C2C</color>        <!-- Dark Input Container -->
+
+    <!-- ========================= -->
+    <!-- Text Colors -->
+    <!-- ========================= -->
+    <color name="text_primary">#FFFFFF</color>     <!-- Crisp White Body Text -->
+    <color name="text_secondary">#B0B0B0</color>   <!-- Soft Gray Subtitles -->
+    <color name="textWhite">#FFFFFF</color>
+    <color name="divider">#333333</color>          <!-- Dark Border Separator -->
+
+    <!-- ========================= -->
+    <!-- Special Features & Status -->
+    <!-- ========================= -->
+    <color name="favorite_red">#E53935</color>
+    <color name="moms_secret_bg">#2A2415</color>   <!-- Deep Amber Tint for Dark Mode -->
+    <color name="moms_secret_border">#FBC02D</color> <!-- Haldi Golden Border -->
+    <color name="chip_selected_bg">#3E2723</color>
+    <color name="success">#4CAF50</color>
+    <color name="error">#EF5350</color>
+
+</resources>

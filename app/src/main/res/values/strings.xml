@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- App Information -->
+    <string name="app_name">Annapurna</string>
+    <string name="app_tagline">Ghar ke swaad ki apni kitaab.</string>
+    <string name="developer">Cooked Up by Shashank Singh</string>
+
+    <!-- Splash & About Screen -->
+    <string name="splash_tagline">Preserving Family Heritage Recipes</string>
+    <string name="creator_credit">Made with \u2764\uFE0F for Home Chefs</string>
+    <string name="title_about">About Annapurna</string>
+
+    <!-- Greetings -->
+    <string name="good_morning">Good Morning</string>
+    <string name="good_afternoon">Good Afternoon</string>
+    <string name="good_evening">Good Evening</string>
+    <string name="good_night">Good Night</string>
+
+    <!-- Home Screen -->
+    <string name="search_recipes">Search recipes...</string>
+    <string name="categories">Categories</string>
+    <string name="recently_added">Recently Added</string>
+
+    <!-- New Recipe Screen -->
+    <string name="title_new_recipe">New Recipe</string>
+    <string name="btn_new_recipe">New Recipe</string>
+    <string name="hint_recipe_name">Recipe Title (e.g. Dadi\'s Masala Chai)</string>
+    <string name="hint_chef_name">Chef Name (e.g. Mom, Dadi, You)</string>
+    <string name="hint_category">Category (e.g. Breakfast, Sweets, Curry)</string>
+    <string name="hint_secret_tip">Mom\'s Secret Tip (Optional)</string>
+    <string name="btn_select_video">Pick Cooking Video</string>
+    <string name="btn_save_recipe">Save Recipe</string>
+
+    <!-- Settings Screen -->
+    <string name="title_settings">Settings</string>
+    <string name="settings_theme_header">Kitchen Theme</string>
+    <string name="settings_backup_header">Backup &amp; Restore</string>
+    <string name="btn_export_json">Export Recipes (JSON)</string>
+    <string name="btn_import_json">Import Recipes (JSON)</string>
+
+    <!-- Content Descriptions -->
+    <string name="search_icon">Search</string>
+    <string name="desc_new_recipe">Create New Recipe</string>
+
+    <string name="about_annapurna_title">Mata Annapurna</string>
+    <string name="about_annapurna_desc">Named after Goddess Annapurna—the Hindu deity of food, nourishment, and abundance. In Sanskrit, \'Anna\' means food and \'Purna\' means complete. She represents the divine blessing that no home or kitchen should ever go hungry.</string>
+</resources>

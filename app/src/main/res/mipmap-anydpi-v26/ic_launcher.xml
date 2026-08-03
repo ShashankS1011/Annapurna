@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Solid color or drawable background -->
+    <background android:drawable="@color/ic_launcher_background" />
+    <!-- Your Handi Vector Drawable -->
+    <foreground android:drawable="@drawable/ic_handi_logo" />
+</adaptive-icon>

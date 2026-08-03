@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/kitchenBg"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <!-- App Logo -->
+        <ImageView
+            android:id="@+id/imgAboutLogo"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="32dp"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/ic_handi_logo" />
+
+        <!-- App Name -->
+        <TextView
+            android:id="@+id/txtAboutAppName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="sans-serif-bold"
+            android:text="@string/app_name"
+            android:textColor="?attr/kitchenPrimary"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+
+        <!-- App Version -->
+        <TextView
+            android:id="@+id/txtAboutVersion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:fontFamily="sans-serif"
+            android:text="Version 1.0.0"
+            android:textColor="?attr/kitchenTextSecondary"
+            android:textSize="14sp" />
+
+        <!-- Tagline -->
+        <TextView
+            android:id="@+id/txtAboutTagline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/splash_tagline"
+            android:textColor="?attr/kitchenTextMain"
+            android:textSize="16sp" />
+
+        <!-- App Description Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            app:cardBackgroundColor="?attr/kitchenBg"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="2dp"
+            app:strokeColor="?attr/kitchenPrimary"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-bold"
+                    android:text="About Annapurna"
+                    android:textColor="?attr/kitchenPrimary"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="sans-serif"
+                    android:lineSpacingExtra="4dp"
+                    android:text="Annapurna is your personal offline kitchen journal designed to preserve cherished family recipes, secret tips from home chefs, and step-by-step cooking videos."
+                    android:textColor="?attr/kitchenTextMain"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Creator Credit (Fixed layout_marginTop="auto" -> 16dp) -->
+        <TextView
+            android:id="@+id/txtCreatorCredit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/creator_credit"
+            android:textColor="?attr/kitchenTextSecondary"
+            android:textSize="13sp" />
+
+    </LinearLayout>
+</ScrollView>

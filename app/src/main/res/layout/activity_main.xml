@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/kitchenBg">
+
+    <!-- Top App Bar -->
+    <RelativeLayout
+        android:id="@+id/headerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtGreetingHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-bold"
+                android:textColor="?attr/kitchenPrimary"
+                android:textSize="22sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:text="@string/app_tagline"
+                android:textColor="?attr/kitchenTextMain"
+                android:textSize="13sp"
+                android:alpha="0.7" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/btnSettings"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:contentDescription="Settings"
+            android:src="@android:drawable/ic_menu_manage"
+            app:tint="?attr/kitchenPrimary" />
+    </RelativeLayout>
+
+    <!-- Search Input -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardSearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/headerLayout"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="12dp"
+        app:cardBackgroundColor="?attr/kitchenBg"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="2dp"
+        app:strokeColor="?attr/kitchenPrimary"
+        app:strokeWidth="1dp">
+
+        <EditText
+            android:id="@+id/etSearch"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@null"
+            android:drawableStart="@android:drawable/ic_menu_search"
+            android:drawablePadding="12dp"
+            android:fontFamily="sans-serif"
+            android:hint="@string/search_recipes"
+            android:paddingHorizontal="16dp"
+            android:textColor="?attr/kitchenTextMain"
+            android:textColorHint="?attr/kitchenTextMain"
+            android:textSize="14sp" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Recipe List -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvRecipes"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/fabAddRecipe"
+        android:layout_below="@id/cardSearch"
+        android:clipToPadding="false"
+        android:padding="12dp" />
+
+    <!-- EMPTY STATE CONTAINER (Hidden when recipes exist) -->
+    <LinearLayout
+        android:id="@+id/layoutEmptyState"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="32dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:alpha="0.4"
+            android:src="@drawable/ic_handi_logo"
+            app:tint="?attr/kitchenPrimary" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="sans-serif-bold"
+            android:text="No Recipes Found"
+            android:textColor="?attr/kitchenPrimary"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:alpha="0.7"
+            android:fontFamily="sans-serif"
+            android:gravity="center"
+            android:text="Your kitchen vault is empty. Tap below to save your first secret family recipe!"
+            android:textColor="?attr/kitchenTextMain"
+            android:textSize="13sp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnEmptyAddRecipe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="+ Add First Recipe"
+            android:textColor="?attr/kitchenBg"
+            app:backgroundTint="?attr/kitchenPrimary"
+            app:cornerRadius="8dp" />
+
+    </LinearLayout>
+
+    <!-- Floating Action Button -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAddRecipe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="24dp"
+        android:contentDescription="@string/desc_new_recipe"
+        android:src="@android:drawable/ic_input_add"
+        app:backgroundTint="?attr/kitchenPrimary"
+        app:tint="?attr/kitchenBg" />
+
+</RelativeLayout>

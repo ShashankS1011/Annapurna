@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="ic_launcher_background">#FFFFFF</color>
+    <!-- Base App Neutral Colors -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="text_dark">#1A1A1A</color>
+    <color name="text_muted_light">#666666</color>
+    <color name="text_light">#F5F5F5</color>
+    <color name="text_muted_dark">#AAAAAA</color>
+
+    <!-- 🟠 Kesar (Saffron Orange) -->
+    <color name="kesar_primary">#E65100</color>
+    <color name="kesar_primary_dark">#BF360C</color>
+    <color name="kesar_accent">#FF9800</color>
+    <color name="kesar_bg_light">#FFF8F5</color>
+    <color name="kesar_bg_dark">#1A0C02</color>
+
+    <!-- 🟢 Tulsi (Fresh Botanical Green) -->
+    <color name="tulsi_primary">#2E7D32</color>
+    <color name="tulsi_primary_dark">#1B5E20</color>
+    <color name="tulsi_accent">#4CAF50</color>
+    <color name="tulsi_bg_light">#F5FBF6</color>
+    <color name="tulsi_bg_dark">#031405</color>
+
+    <!-- 🟤 Mitti (Earthy Terracotta Brown) -->
+    <color name="mitti_primary">#5D4037</color>
+    <color name="mitti_primary_dark">#3E2723</color>
+    <color name="mitti_accent">#8D6E63</color>
+    <color name="mitti_bg_light">#FAF6F0</color>
+    <color name="mitti_bg_dark">#170F0D</color>
+
+    <!-- 🔴 Masala (Rich Spiced Crimson) -->
+    <color name="masala_primary">#C62828</color>
+    <color name="masala_primary_dark">#8E0000</color>
+    <color name="masala_accent">#E53935</color>
+    <color name="masala_bg_light">#FFF5F5</color>
+    <color name="masala_bg_dark">#1A0303</color>
+
+    <!-- 🟡 Haldi (Turmeric Yellow) -->
+    <color name="haldi_primary">#F57F17</color>
+    <color name="haldi_primary_dark">#F57F17</color>
+    <color name="haldi_accent">#FBC02D</color>
+    <color name="haldi_bg_light">#FFFDE7</color>
+    <color name="haldi_bg_dark">#1A1702</color>
+</resources>

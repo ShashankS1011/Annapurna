@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Base Application Theme -->
+    <style name="Theme.Annapurna" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:statusBarColor">?attr/kitchenPrimaryDark</item>
+        <item name="android:windowLightStatusBar">false</item>
+
+        <!-- Kitchen Attributes (Default Kesar Theme) -->
+        <item name="kitchenPrimary">@color/kesar_primary</item>
+        <item name="kitchenPrimaryDark">@color/kesar_primary_dark</item>
+        <item name="kitchenAccent">@color/kesar_accent</item>
+        <item name="kitchenBg">@color/kesar_bg_light</item>
+        <item name="kitchenTextMain">@color/text_dark</item>
+        <item name="kitchenTextSecondary">@color/text_muted_light</item>
+    </style>
+
+    <!-- Spice Theme Variants -->
+    <style name="Theme.Annapurna.Kesar" parent="Theme.Annapurna">
+        <item name="kitchenPrimary">@color/kesar_primary</item>
+        <item name="kitchenPrimaryDark">@color/kesar_primary_dark</item>
+        <item name="kitchenAccent">@color/kesar_accent</item>
+        <item name="kitchenBg">@color/kesar_bg_light</item>
+        <item name="kitchenTextMain">@color/text_dark</item>
+        <item name="kitchenTextSecondary">@color/text_muted_light</item>
+    </style>
+
+    <style name="Theme.Annapurna.Tulsi" parent="Theme.Annapurna">
+        <item name="kitchenPrimary">@color/tulsi_primary</item>
+        <item name="kitchenPrimaryDark">@color/tulsi_primary_dark</item>
+        <item name="kitchenAccent">@color/tulsi_accent</item>
+        <item name="kitchenBg">@color/tulsi_bg_light</item>
+        <item name="kitchenTextMain">@color/text_dark</item>
+        <item name="kitchenTextSecondary">@color/text_muted_light</item>
+    </style>
+
+    <style name="Theme.Annapurna.Mitti" parent="Theme.Annapurna">
+        <item name="kitchenPrimary">@color/mitti_primary</item>
+        <item name="kitchenPrimaryDark">@color/mitti_primary_dark</item>
+        <item name="kitchenAccent">@color/mitti_accent</item>
+        <item name="kitchenBg">@color/mitti_bg_light</item>
+        <item name="kitchenTextMain">@color/text_dark</item>
+        <item name="kitchenTextSecondary">@color/text_muted_light</item>
+    </style>
+
+    <style name="Theme.Annapurna.Masala" parent="Theme.Annapurna">
+        <item name="kitchenPrimary">@color/masala_primary</item>
+        <item name="kitchenPrimaryDark">@color/masala_primary_dark</item>
+        <item name="kitchenAccent">@color/masala_accent</item>
+        <item name="kitchenBg">@color/masala_bg_light</item>
+        <item name="kitchenTextMain">@color/text_dark</item>
+        <item name="kitchenTextSecondary">@color/text_muted_light</item>
+    </style>
+
+    <style name="Theme.Annapurna.Haldi" parent="Theme.Annapurna">
+        <item name="kitchenPrimary">@color/haldi_primary</item>
+        <item name="kitchenPrimaryDark">@color/haldi_primary_dark</item>
+        <item name="kitchenAccent">@color/haldi_accent</item>
+        <item name="kitchenBg">@color/haldi_bg_light</item>
+        <item name="kitchenTextMain">@color/text_dark</item>
+        <item name="kitchenTextSecondary">@color/text_muted_light</item>
+    </style>
+
+</resources>

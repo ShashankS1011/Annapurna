@@ -16,6 +16,8 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.google.android.material.card.MaterialCardView;
+
 public class AddRecipeActivity extends BaseActivity {
 
     private EditText editName, editChef, editSecretTip, editOccasion, editNotes;
@@ -74,6 +76,12 @@ public class AddRecipeActivity extends BaseActivity {
         btnSaveRecipe = findViewById(R.id.btnSaveRecipe);
         txtSelectedVideoPath = findViewById(R.id.txtSelectedVideoPath);
         btnBack = findViewById(R.id.btnBack);
+
+        // Inside initViews() in AddRecipeActivity.java:
+        MaterialCardView cardVideoPicker = findViewById(R.id.cardVideoPicker);
+        if (cardVideoPicker != null) {
+            cardVideoPicker.setOnClickListener(v -> openVideoPicker());
+        }
 
         if (btnBack != null) {
             btnBack.setOnClickListener(v -> finish());

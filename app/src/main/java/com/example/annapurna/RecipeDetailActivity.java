@@ -1,9 +1,13 @@
 package com.example.annapurna;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.PowerManager;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageButton;
@@ -14,6 +18,7 @@ import android.widget.Toast;
 import androidx.annotation.OptIn;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.media3.common.MediaItem;
+import androidx.media3.common.Player;
 import androidx.media3.common.util.UnstableApi;
 import androidx.media3.exoplayer.ExoPlayer;
 import androidx.media3.ui.PlayerView;
@@ -35,6 +40,9 @@ public class RecipeDetailActivity extends BaseActivity {
     private ExoPlayer player;
     private long playbackPosition = 0;
 
+    // WakeLock for Cooking Mode
+    private PowerManager.WakeLock wakeLock;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,17 +61,88 @@ public class RecipeDetailActivity extends BaseActivity {
             return;
         }
 
-        SharedPreferences prefs = getSharedPreferences("AnnapurnaPrefs", MODE_PRIVATE);
-        boolean isCookingModeEnabled = prefs.getBoolean("cooking_mode", true);
-
-        if (isCookingModeEnabled) {
-            getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-        } else {
-            getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-        }
-
         initViews();
         setupViewModel();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // Default set explicitly to false (OFF by default)
+        SharedPreferences prefs = getSharedPreferences("AnnapurnaPrefs", MODE_PRIVATE);
+        boolean isCookingModeEnabled = prefs.getBoolean("cooking_mode", false);
+
+        if (getWindow() != null && getWindow().getDecorView() != null) {
+            getWindow().getDecorView().post(() -> updateCookingMode(isCookingModeEnabled));
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        // Automatically release WakeLock when leaving the screen or minimizing app
+        releaseWakeLock();
+    }
+
+    private void updateCookingMode(boolean enabled) {
+        Log.d("Annapurna", "Cooking mode status: " + enabled);
+
+        if (enabled) {
+            // 1. Apply Window Flags
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+            if (getWindow().getDecorView() != null) {
+                getWindow().getDecorView().setKeepScreenOn(true);
+            }
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O_MR1) {
+                setTurnScreenOn(true);
+            } else {
+                getWindow().addFlags(WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
+            }
+
+            // 2. Acquire Hardware-Level WakeLock
+            acquireWakeLock();
+        } else {
+            // Clear Window Flags
+            getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+            if (getWindow().getDecorView() != null) {
+                getWindow().getDecorView().setKeepScreenOn(false);
+            }
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O_MR1) {
+                setTurnScreenOn(false);
+            } else {
+                getWindow().clearFlags(WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
+            }
+
+            // Release Hardware WakeLock
+            releaseWakeLock();
+        }
+    }
+
+    private void acquireWakeLock() {
+        if (wakeLock == null) {
+            PowerManager powerManager = (PowerManager) getSystemService(Context.POWER_SERVICE);
+            if (powerManager != null) {
+                wakeLock = powerManager.newWakeLock(
+                        PowerManager.SCREEN_BRIGHT_WAKE_LOCK | PowerManager.ON_AFTER_RELEASE,
+                        "Annapurna:CookingModeWakeLock"
+                );
+            }
+        }
+
+        if (wakeLock != null && !wakeLock.isHeld()) {
+            wakeLock.acquire(120 * 60 * 1000L /* 2 Hours Timeout max */);
+            Log.d("Annapurna", "WakeLock Acquired successfully");
+        }
+    }
+
+    private void releaseWakeLock() {
+        if (wakeLock != null && wakeLock.isHeld()) {
+            wakeLock.release();
+            Log.d("Annapurna", "WakeLock Released successfully");
+        }
     }
 
     private void initViews() {
@@ -161,8 +240,20 @@ public class RecipeDetailActivity extends BaseActivity {
     @OptIn(markerClass = UnstableApi.class)
     private void initializePlayer(String videoUriString) {
         if (player == null && playerView != null) {
+            playerView.setKeepScreenOn(false);
+
             player = new ExoPlayer.Builder(this).build();
             playerView.setPlayer(player);
+
+            // Re-apply cooking mode on player state transitions to prevent ExoPlayer from clearing wake flags
+            player.addListener(new Player.Listener() {
+                @Override
+                public void onPlaybackStateChanged(int playbackState) {
+                    SharedPreferences prefs = getSharedPreferences("AnnapurnaPrefs", MODE_PRIVATE);
+                    boolean isCookingModeEnabled = prefs.getBoolean("cooking_mode", false);
+                    updateCookingMode(isCookingModeEnabled);
+                }
+            });
 
             Uri videoUri = Uri.parse(videoUriString);
             MediaItem mediaItem = MediaItem.fromUri(videoUri);
@@ -203,5 +294,11 @@ public class RecipeDetailActivity extends BaseActivity {
             player.release();
             player = null;
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        releaseWakeLock();
     }
 }

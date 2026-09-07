@@ -2,6 +2,7 @@ package com.example.annapurna;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
+import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
@@ -20,6 +21,10 @@ public interface RecipeDao {
 
     @Update
     void updateRecipe(RecipeEntity recipe);
+
+    // Added Room @Delete method for single entity deletion
+    @Delete
+    void deleteRecipe(RecipeEntity recipe);
 
     @Query("SELECT * FROM recipes ORDER BY id DESC")
     LiveData<List<RecipeEntity>> getAllRecipes();

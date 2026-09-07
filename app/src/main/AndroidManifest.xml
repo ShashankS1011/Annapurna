@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- Permissions for picking and playing local video files -->
+    <!-- Network permissions for streaming YouTube / Instagram videos -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- Permissions for picking and playing local video files & cooking mode -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission
         android:name="android.permission.READ_EXTERNAL_STORAGE"
@@ -12,11 +16,13 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
+        android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Annapurna">
+        android:theme="@style/Theme.Annapurna"
+        android:usesCleartextTraffic="true">
 
         <!-- Splash Activity (Launcher) -->
         <activity
@@ -46,7 +52,9 @@
         <!-- Recipe Detail Activity -->
         <activity
             android:name=".RecipeDetailActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
             android:exported="false"
+            android:hardwareAccelerated="true"
             android:parentActivityName=".MainActivity" />
 
         <!-- About Screen Activity -->
@@ -54,6 +62,7 @@
             android:name=".AboutActivity"
             android:exported="false"
             android:parentActivityName=".MainActivity" />
+
         <activity
             android:name=".SettingsActivity"
             android:exported="false"

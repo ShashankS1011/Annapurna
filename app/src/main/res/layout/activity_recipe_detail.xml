@@ -1,28 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/kitchenBg"
-    android:keepScreenOn="true"
-    android:orientation="vertical">
+    android:background="#121212">
 
-    <!-- Header Toolbar -->
+    <!-- Top Navigation Bar -->
     <RelativeLayout
+        android:id="@+id/topBar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="16dp">
+        android:layout_height="56dp"
+        android:paddingHorizontal="16dp">
 
         <ImageView
             android:id="@+id/btnBack"
             android:layout_width="32dp"
             android:layout_height="32dp"
-            android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
-            android:contentDescription="Back"
             android:src="@android:drawable/ic_menu_revert"
-            app:tint="?attr/kitchenPrimary" />
+            app:tint="#FFFFFF" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -32,148 +28,276 @@
             android:orientation="horizontal">
 
             <ImageButton
+                android:id="@+id/btnDetailFavorite"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@android:drawable/btn_star_big_off" />
+
+            <ImageButton
                 android:id="@+id/btnDetailShare"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:contentDescription="Share Recipe"
                 android:src="@android:drawable/ic_menu_share"
-                app:tint="?attr/kitchenPrimary" />
-
-            <ImageButton
-                android:id="@+id/btnDetailFavorite"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginStart="8dp"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:contentDescription="Favorite"
-                android:src="@android:drawable/btn_star_big_off" />
+                app:tint="#FFFFFF" />
         </LinearLayout>
     </RelativeLayout>
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="16dp">
+        android:layout_below="@id/topBar">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/txtDetailTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-bold"
-                android:textColor="?attr/kitchenPrimary"
-                android:textSize="24sp" />
-
-            <TextView
-                android:id="@+id/txtDetailChef"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:fontFamily="sans-serif-medium"
-                android:textColor="?attr/kitchenTextMain"
-                android:textSize="14sp" />
-
-            <TextView
-                android:id="@+id/txtDetailCategory"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:fontFamily="sans-serif"
-                android:textColor="?attr/kitchenPrimary"
-                android:textSize="12sp" />
-
-            <TextView
-                android:id="@+id/txtDetailOccasion"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:visibility="gone" />
-
-            <!-- Video Player -->
-            <androidx.media3.ui.PlayerView
-                android:id="@+id/playerView"
+            <!-- Video Player Area -->
+            <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="220dp"
-                android:layout_marginTop="16dp"
-                android:visibility="gone" />
+                android:background="#000000">
 
-            <!-- Mom's Secret Tip Card -->
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/cardSecretTip"
+                <androidx.media3.ui.PlayerView
+                    android:id="@+id/playerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="gone" />
+
+                <WebView
+                    android:id="@+id/webViewPlayer"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="gone" />
+            </FrameLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:visibility="gone"
-                app:cardBackgroundColor="?attr/kitchenBg"
-                app:cardCornerRadius="12dp"
-                app:strokeColor="?attr/kitchenPrimary"
-                app:strokeWidth="1dp">
+                android:orientation="vertical"
+                android:padding="16dp">
 
-                <LinearLayout
+                <!-- Recipe Header Info -->
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="12dp">
+                    android:layout_height="wrap_content">
 
                     <TextView
+                        android:id="@+id/txtDetailTitle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-bold"
-                        android:text="Mom's Secret Tip 💡"
-                        android:textColor="?attr/kitchenPrimary"
+                        android:textColor="#FFFFFF"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txtDetailChef"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/txtDetailTitle"
+                        android:layout_marginTop="4dp"
+                        android:textColor="#AAAAAA"
                         android:textSize="14sp" />
 
                     <TextView
-                        android:id="@+id/txtDetailSecretTip"
+                        android:id="@+id/txtDetailCategory"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:textColor="?attr/kitchenTextMain"
-                        android:textSize="13sp" />
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
+                        android:layout_alignParentEnd="true"
+                        android:background="#333333"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="4dp"
+                        android:textColor="#FFFFFF"
+                        android:textSize="12sp" />
+                </RelativeLayout>
 
-            <!-- Cooking Notes Card -->
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/cardNotes"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:visibility="gone"
-                app:cardBackgroundColor="?attr/kitchenBg"
-                app:cardCornerRadius="12dp"
-                app:strokeColor="?attr/kitchenPrimary"
-                app:strokeWidth="1dp">
+                <!-- Mom's Secret Tip Card -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardSecretTip"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:visibility="gone"
+                    app:cardBackgroundColor="#2A2415"
+                    app:cardCornerRadius="10dp">
 
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="12dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="💡 Mom's Secret Tip"
+                            android:textColor="#FFC107"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/txtDetailSecretTip"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:textColor="#EEEEEE"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Cooking Timer Widget -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    app:cardBackgroundColor="#1E1E1E"
+                    app:cardCornerRadius="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="12dp">
+
+                        <TextView
+                            android:id="@+id/txtTimerDisplay"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="⏱️ Cooking Timer: 00:00"
+                            android:textColor="#FFFFFF"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                        <Button
+                            android:id="@+id/btnStartTimer"
+                            style="?android:attr/borderlessButtonStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Start"
+                            android:textColor="#FF9800" />
+
+                        <Button
+                            android:id="@+id/btnResetTimer"
+                            style="?android:attr/borderlessButtonStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Reset"
+                            android:textColor="#888888" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Ingredients Checklist -->
+                <TextView
+                    android:id="@+id/lblIngredients"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="Ingredients Checklist"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:id="@+id/layoutIngredientsContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="vertical" />
+
+                <!-- Step-by-Step Instructions -->
+                <TextView
+                    android:id="@+id/lblInstructions"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="Step-by-Step Instructions"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtDetailInstructions"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:lineSpacingExtra="4dp"
+                    android:textColor="#DDDDDD"
+                    android:textSize="14sp" />
+
+                <!-- Additional Cooking Notes Card -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardNotes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:visibility="gone"
+                    app:cardBackgroundColor="#1E1E1E"
+                    app:cardCornerRadius="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="12dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="📝 Additional Notes"
+                            android:textColor="#4CAF50"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/txtDetailNotes"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:textColor="#EEEEEE"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Action Buttons Bar -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="12dp">
+                    android:layout_marginTop="28dp"
+                    android:orientation="horizontal">
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <Button
+                        android:id="@+id/btnEditRecipe"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-bold"
-                        android:text="Cooking Notes 📝"
-                        android:textColor="?attr/kitchenPrimary"
-                        android:textSize="14sp" />
+                        android:layout_weight="1"
+                        android:layout_marginEnd="4dp"
+                        android:backgroundTint="#333333"
+                        android:text="Edit"
+                        android:textColor="#FFFFFF" />
 
-                    <TextView
-                        android:id="@+id/txtDetailNotes"
-                        android:layout_width="wrap_content"
+                    <Button
+                        android:id="@+id/btnOpenExternal"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:textColor="?attr/kitchenTextMain"
-                        android:textSize="13sp" />
+                        android:layout_weight="1.5"
+                        android:layout_marginEnd="4dp"
+                        android:backgroundTint="#FF9800"
+                        android:text="Open Link"
+                        android:textColor="#FFFFFF" />
+
+                    <Button
+                        android:id="@+id/btnDeleteRecipe"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:backgroundTint="#D32F2F"
+                        android:text="Delete"
+                        android:textColor="#FFFFFF" />
                 </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
 
+            </LinearLayout>
         </LinearLayout>
-    </ScrollView>
-</LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</RelativeLayout>

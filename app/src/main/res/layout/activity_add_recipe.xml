@@ -2,6 +2,7 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/kitchenBg"
@@ -227,50 +228,135 @@
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- Card 3: Interactive Video Upload Zone -->
+            <!-- Card 3: Interactive Video Zone (URL or File) -->
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/cardVideoPicker"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="24dp"
-                android:clickable="true"
-                android:focusable="true"
                 app:cardCornerRadius="16dp"
-                app:cardElevation="1dp"
-                app:strokeColor="?attr/kitchenPrimary"
-                app:strokeWidth="1dp">
+                app:cardElevation="2dp"
+                app:strokeWidth="0dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
                     android:orientation="vertical"
-                    android:padding="20dp">
-
-                    <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:src="@android:drawable/ic_menu_camera"
-                        app:tint="?attr/kitchenPrimary" />
-
-                    <Button
-                        android:id="@+id/btnSelectVideo"
-                        style="@style/Widget.MaterialComponents.Button.TextButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Attach Cooking Video Guide"
-                        android:textColor="?attr/kitchenPrimary"
-                        android:textStyle="bold" />
+                    android:padding="16dp">
 
                     <TextView
-                        android:id="@+id/txtSelectedVideoPath"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-medium"
-                        android:text="Video Selected ✓"
-                        android:textColor="#2E7D32"
-                        android:textSize="13sp"
-                        android:visibility="gone" />
+                        android:layout_marginBottom="12dp"
+                        android:fontFamily="sans-serif-bold"
+                        android:text="Video Cooking Guide"
+                        android:textColor="?attr/kitchenPrimary"
+                        android:textSize="16sp" />
+
+                    <!-- Paste YouTube / Instagram URL -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Paste YouTube or Instagram Reel Link"
+                        app:boxCornerRadiusBottomEnd="12dp"
+                        app:boxCornerRadiusBottomStart="12dp"
+                        app:boxCornerRadiusTopEnd="12dp"
+                        app:boxCornerRadiusTopStart="12dp"
+                        app:startIconDrawable="@android:drawable/ic_menu_share">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/editVideoUrl"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textUri" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- Source Detection Text -->
+                    <TextView
+                        android:id="@+id/txtDetectedSource"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginStart="4dp"
+                        android:textColor="#666666"
+                        android:textSize="12sp"
+                        android:textStyle="italic"
+                        tools:text="Source: YouTube Video Detected" />
+
+                    <!-- Divider OR text -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginVertical="10dp"
+                        android:text="— OR —"
+                        android:textColor="#888888"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+
+                    <!-- Gallery Pick Card Box -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardVideoPicker"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:focusable="true"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="0dp"
+                        app:strokeColor="?attr/kitchenPrimary"
+                        app:strokeWidth="1dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+
+                            <ImageView
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:src="@android:drawable/ic_menu_camera"
+                                app:tint="?attr/kitchenPrimary" />
+
+                            <Button
+                                android:id="@+id/btnSelectVideo"
+                                style="@style/Widget.MaterialComponents.Button.TextButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Attach Gallery Video File"
+                                android:textColor="?attr/kitchenPrimary"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/txtSelectedVideoPath"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="sans-serif-medium"
+                                android:text="Video Selected ✓"
+                                android:textColor="#2E7D32"
+                                android:textSize="13sp"
+                                android:visibility="gone" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- Preview Frame for YouTube Thumbnails / Selected Gallery Videos -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardPreviewContainer"
+                        android:layout_width="match_parent"
+                        android:layout_height="160dp"
+                        android:layout_marginTop="12dp"
+                        android:visibility="gone"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="0dp">
+
+                        <ImageView
+                            android:id="@+id/imgVideoPreview"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop" />
+                    </com.google.android.material.card.MaterialCardView>
+
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 

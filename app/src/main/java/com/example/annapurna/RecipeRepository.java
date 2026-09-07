@@ -25,7 +25,6 @@ public class RecipeRepository {
         return allRecipes;
     }
 
-    // ADD THIS METHOD
     public LiveData<List<String>> getUniqueChefs() {
         return uniqueChefs;
     }
@@ -34,12 +33,17 @@ public class RecipeRepository {
         return recipeDao.getRecipeById(id);
     }
 
-    public void insertRecipe(RecipeEntity recipe) {
+    // Fixed & standard methods called by RecipeViewModel
+    public void insert(RecipeEntity recipe) {
         executorService.execute(() -> recipeDao.insertRecipe(recipe));
     }
 
-    public void updateRecipe(RecipeEntity recipe) {
+    public void update(RecipeEntity recipe) {
         executorService.execute(() -> recipeDao.updateRecipe(recipe));
+    }
+
+    public void delete(RecipeEntity recipe) {
+        executorService.execute(() -> recipeDao.deleteRecipe(recipe));
     }
 
     public void updateFavoriteStatus(int id, boolean isFavorite) {

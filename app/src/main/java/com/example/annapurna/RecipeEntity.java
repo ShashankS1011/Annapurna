@@ -20,8 +20,18 @@ public class RecipeEntity {
     private long videoPlaybackPosition;
     private boolean isFavorite;
 
+    // NEW FIELDS FOR YOUTUBE & INSTAGRAM INTEGRATION
+    private String videoSource;  // "LOCAL", "YOUTUBE", or "INSTAGRAM"
+    private String thumbnailUrl; // Web image URL for YouTube/Instagram preview
+
+    // NEW FIELDS FOR CHECKLIST & INSTRUCTIONS
+    private String ingredients;
+    private String instructions;
+
     // Required by Room
-    public RecipeEntity() {}
+    public RecipeEntity() {
+        this.videoSource = LinkParserUtil.SOURCE_LOCAL;
+    }
 
     // Parameterized constructor for creation (Ignored by Room)
     @Ignore
@@ -30,6 +40,7 @@ public class RecipeEntity {
         this.chef = chef;
         this.category = category;
         this.videoPath = videoPath;
+        this.videoSource = LinkParserUtil.SOURCE_LOCAL;
     }
 
     // Full constructor if needed elsewhere
@@ -42,6 +53,7 @@ public class RecipeEntity {
         this.occasion = occasion;
         this.cookingNotes = cookingNotes;
         this.videoPath = videoPath;
+        this.videoSource = LinkParserUtil.SOURCE_LOCAL;
     }
 
     // Primary Key Getters & Setters
@@ -123,5 +135,38 @@ public class RecipeEntity {
 
     public void setFavorite(boolean favorite) {
         isFavorite = favorite;
+    }
+
+    public String getVideoSource() {
+        return videoSource != null ? videoSource : LinkParserUtil.SOURCE_LOCAL;
+    }
+
+    public void setVideoSource(String videoSource) {
+        this.videoSource = videoSource;
+    }
+
+    public String getThumbnailUrl() {
+        return thumbnailUrl;
+    }
+
+    public void setThumbnailUrl(String thumbnailUrl) {
+        this.thumbnailUrl = thumbnailUrl;
+    }
+
+    // GETTERS AND SETTERS FOR INGREDIENTS & INSTRUCTIONS
+    public String getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(String ingredients) {
+        this.ingredients = ingredients;
+    }
+
+    public String getInstructions() {
+        return instructions;
+    }
+
+    public void setInstructions(String instructions) {
+        this.instructions = instructions;
     }
 }

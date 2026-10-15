@@ -55,6 +55,12 @@
             </intent-filter>
         </activity>
 
+        <!-- Grocery List Activity -->
+        <activity
+            android:name=".GroceryListActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
+
         <!-- Recipe Detail Activity -->
         <activity
             android:name=".RecipeDetailActivity"

@@ -45,6 +45,7 @@ public class MainActivity extends BaseActivity {
         btnEmptyAddRecipe = findViewById(R.id.btnEmptyAddRecipe);
         fabAddRecipe = findViewById(R.id.fabAddRecipe);
         btnSettings = findViewById(R.id.btnSettings);
+        ImageView btnGrocery = findViewById(R.id.btnGrocery);
 
         // Setup RecyclerView
         rvRecipes.setLayoutManager(new LinearLayoutManager(this));
@@ -59,6 +60,9 @@ public class MainActivity extends BaseActivity {
         fabAddRecipe.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, AddRecipeActivity.class)));
         btnEmptyAddRecipe.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, AddRecipeActivity.class)));
         btnSettings.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, SettingsActivity.class)));
+        if (btnGrocery != null) {
+            btnGrocery.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, GroceryListActivity.class)));
+        }
 
         // Live Search Filter Listener
         etSearch.addTextChangedListener(new TextWatcher() {

@@ -37,15 +37,31 @@
                 android:alpha="0.7" />
         </LinearLayout>
 
-        <ImageView
-            android:id="@+id/btnSettings"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:contentDescription="Settings"
-            android:src="@android:drawable/ic_menu_manage"
-            app:tint="?attr/kitchenPrimary" />
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/btnGrocery"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginEnd="16dp"
+                android:contentDescription="Grocery List"
+                android:src="@android:drawable/ic_menu_agenda"
+                app:tint="?attr/kitchenPrimary" />
+
+            <ImageView
+                android:id="@+id/btnSettings"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:contentDescription="Settings"
+                android:src="@android:drawable/ic_menu_manage"
+                app:tint="?attr/kitchenPrimary" />
+        </LinearLayout>
     </RelativeLayout>
 
     <!-- Search Input -->

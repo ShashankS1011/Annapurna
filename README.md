@@ -1,11 +1,18 @@
 # Annapurna - The Ultimate Culinary Heritage & Recipe Vault
 
 [![Android CI](https://github.com/ShashankS1011/Annapurna/actions/workflows/android.yml/badge.svg)](https://github.com/ShashankS1011/Annapurna/actions/workflows/android.yml)
-[![Download APK](https://img.shields.io/badge/Download_APK-v1.1-2EA44F?style=for-the-badge&logo=android&logoColor=white)](https://github.com/ShashankS1011/Annapurna/releases/download/v1.1/Annapurna.apk)
+[![CodeQL](https://github.com/ShashankS1011/Annapurna/actions/workflows/codeql.yml/badge.svg)](https://github.com/ShashankS1011/Annapurna/actions/workflows/codeql.yml)
+[![Download Latest APK](https://img.shields.io/badge/Download_Latest_APK-v1.1-2EA44F?style=for-the-badge&logo=android&logoColor=white)](https://github.com/ShashankS1011/Annapurna/releases/latest)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Platform: Android 7.0+](https://img.shields.io/badge/Platform-Android%207.0%2B-blue?logo=android)](https://www.android.com)
 
 Annapurna - named after the Hindu Goddess of Food and Nourishment (Anna meaning food, and Purna meaning complete or perfect) - is an enterprise-grade, native Android application engineered to function as a permanent digital repository and active cooking assistant. The application honors the warmth, heritage, and emotional connection of home-cooked meals by providing a secure, lightning-fast, privacy-first space to safeguard treasured family recipes.
+
+---
+
+## Download & Releases
+
+You can download the latest production-ready APK directly from the official [GitHub Releases Page](https://github.com/ShashankS1011/Annapurna/releases/latest).
 
 ---
 

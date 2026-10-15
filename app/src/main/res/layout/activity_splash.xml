@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
     activity_splash.xml
-    Premium, clean splash screen with separate icon and vector rendering.
+    Premium, clean splash screen with theme background and vector rendering.
 -->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_main"
-    android:padding="@dimen/spacing_large">
+    android:background="?attr/kitchenBg"
+    android:padding="24dp">
 
     <!-- Center Container for Logo, Name, Tagline -->
     <LinearLayout
@@ -21,31 +21,33 @@
         <!-- Standalone Handi Icon -->
         <ImageView
             android:id="@+id/imgSplashLogo"
-            android:layout_width="110dp"
-            android:layout_height="110dp"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
             android:contentDescription="@string/app_name"
             android:src="@drawable/ic_handi_logo" />
 
-        <!-- Crisp System Text App Title -->
+        <!-- Crisp App Title -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/spacing_medium"
+            android:layout_marginTop="16dp"
             android:fontFamily="sans-serif-bold"
+            android:letterSpacing="0.05"
             android:text="@string/app_name"
-            android:textColor="@color/primary"
-            android:textSize="38sp"
+            android:textColor="?attr/kitchenPrimary"
+            android:textSize="40sp"
             android:textStyle="bold" />
 
-        <!-- Crisp System Text Tagline -->
+        <!-- Crisp Tagline -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/spacing_xxsmall"
+            android:layout_marginTop="8dp"
             android:fontFamily="sans-serif-medium"
+            android:letterSpacing="0.02"
             android:text="@string/splash_tagline"
-            android:textColor="@color/text_secondary"
-            android:textSize="@dimen/text_subheading" />
+            android:textColor="?attr/kitchenTextSecondary"
+            android:textSize="15sp" />
 
     </LinearLayout>
 
@@ -56,13 +58,14 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="@dimen/spacing_large"
+        android:layout_marginBottom="32dp"
         android:clickable="true"
         android:focusable="true"
         android:fontFamily="sans-serif-medium"
         android:foreground="?android:attr/selectableItemBackground"
+        android:padding="8dp"
         android:text="@string/creator_credit"
-        android:textColor="@color/primary"
-        android:textSize="@dimen/text_body" />
+        android:textColor="?attr/kitchenPrimary"
+        android:textSize="14sp" />
 
 </RelativeLayout>

@@ -64,6 +64,28 @@ public class MainActivity extends BaseActivity {
             btnGrocery.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, GroceryListActivity.class)));
         }
 
+        ImageView btnThemeToggle = findViewById(R.id.btnThemeToggle);
+        if (btnThemeToggle != null) {
+            btnThemeToggle.setOnClickListener(v -> {
+                int currentMode = ThemeHelper.getSavedAppearance(this);
+                int nextMode;
+                String modeName;
+                if (currentMode == ThemeHelper.APPEARANCE_LIGHT) {
+                    nextMode = ThemeHelper.APPEARANCE_DARK;
+                    modeName = "Dark Mode";
+                } else if (currentMode == ThemeHelper.APPEARANCE_DARK) {
+                    nextMode = ThemeHelper.APPEARANCE_SYSTEM;
+                    modeName = "System Theme";
+                } else {
+                    nextMode = ThemeHelper.APPEARANCE_LIGHT;
+                    modeName = "Light Mode";
+                }
+                ThemeHelper.saveAppearance(this, nextMode);
+                android.widget.Toast.makeText(this, "Switched to " + modeName, android.widget.Toast.LENGTH_SHORT).show();
+                recreate();
+            });
+        }
+
         // Live Search Filter Listener
         etSearch.addTextChangedListener(new TextWatcher() {
             @Override public void beforeTextChanged(CharSequence s, int start, int count, int after) {}

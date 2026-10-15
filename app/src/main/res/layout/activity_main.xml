@@ -46,10 +46,19 @@
             android:orientation="horizontal">
 
             <ImageView
+                android:id="@+id/btnThemeToggle"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginEnd="12dp"
+                android:contentDescription="Toggle Theme"
+                android:src="@android:drawable/ic_menu_view"
+                app:tint="?attr/kitchenPrimary" />
+
+            <ImageView
                 android:id="@+id/btnGrocery"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
-                android:layout_marginEnd="16dp"
+                android:layout_marginEnd="12dp"
                 android:contentDescription="Grocery List"
                 android:src="@android:drawable/ic_menu_agenda"
                 app:tint="?attr/kitchenPrimary" />

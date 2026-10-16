@@ -64,8 +64,14 @@ dependencies {
     implementation("androidx.media3:media3-ui:1.10.1")
 
     // Glide for thumbnails and images
-    implementation("com.github.bumptech.glide:glide:5.0.9")
-    annotationProcessor("com.github.bumptech.glide:compiler:5.0.9")
+    implementation(libs.glide)
+    annotationProcessor(libs.glide.compiler)
+
+    // Networking
+    implementation("com.squareup.retrofit2:retrofit:2.11.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.11.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
+    implementation("com.google.code.gson:gson:2.11.0")
 
     // Testing
     testImplementation(libs.junit)

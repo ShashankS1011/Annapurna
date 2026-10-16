@@ -51,18 +51,34 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.RecipeView
         private final TextView txtName;
         private final TextView txtChef;
         private final TextView txtCategory;
+        private final TextView txtBadge;
 
         public RecipeViewHolder(@NonNull View itemView) {
             super(itemView);
             txtName = itemView.findViewById(R.id.txtItemName);
             txtChef = itemView.findViewById(R.id.txtItemChef);
             txtCategory = itemView.findViewById(R.id.txtItemCategory);
+            txtBadge = itemView.findViewById(R.id.txtItemBadge);
         }
 
         public void bind(RecipeEntity recipe, OnRecipeClickListener listener) {
             if (txtName != null) txtName.setText(recipe.getName());
-            if (txtChef != null) txtChef.setText(recipe.getChef());
+            if (txtChef != null) {
+                String chef = recipe.getChef();
+                txtChef.setText(chef != null && !chef.trim().isEmpty() ? "by " + chef : "");
+            }
             if (txtCategory != null) txtCategory.setText(recipe.getCategory());
+
+            if (txtBadge != null) {
+                StringBuilder badgeStr = new StringBuilder();
+                if (recipe.isFavorite()) {
+                    badgeStr.append("⭐ ");
+                }
+                if (recipe.getVideoPath() != null && !recipe.getVideoPath().trim().isEmpty()) {
+                    badgeStr.append("🎥");
+                }
+                txtBadge.setText(badgeStr.toString().trim());
+            }
 
             itemView.setOnClickListener(v -> {
                 if (listener != null) listener.onRecipeClick(recipe);

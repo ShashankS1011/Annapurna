@@ -6,27 +6,44 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.DiffUtil;
+import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.List;
+import java.util.Objects;
 
-public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.RecipeViewHolder> {
+/**
+ * Modern ListAdapter utilizing DiffUtil for asynchronous list diffing
+ * and smooth item animations.
+ */
+public class RecipeAdapter extends ListAdapter<RecipeEntity, RecipeAdapter.RecipeViewHolder> {
 
     public interface OnRecipeClickListener {
         void onRecipeClick(RecipeEntity recipe);
     }
 
-    private List<RecipeEntity> recipeList;
     private final OnRecipeClickListener listener;
 
-    public RecipeAdapter(List<RecipeEntity> recipeList, OnRecipeClickListener listener) {
-        this.recipeList = recipeList;
-        this.listener = listener;
-    }
+    private static final DiffUtil.ItemCallback<RecipeEntity> DIFF_CALLBACK = new DiffUtil.ItemCallback<RecipeEntity>() {
+        @Override
+        public boolean areItemsTheSame(@NonNull RecipeEntity oldItem, @NonNull RecipeEntity newItem) {
+            return oldItem.getId() == newItem.getId();
+        }
 
-    public void updateList(List<RecipeEntity> newRecipes) {
-        this.recipeList = newRecipes;
-        notifyDataSetChanged();
+        @Override
+        public boolean areContentsTheSame(@NonNull RecipeEntity oldItem, @NonNull RecipeEntity newItem) {
+            return oldItem.getId() == newItem.getId() &&
+                    Objects.equals(oldItem.getName(), newItem.getName()) &&
+                    Objects.equals(oldItem.getChef(), newItem.getChef()) &&
+                    Objects.equals(oldItem.getCategory(), newItem.getCategory()) &&
+                    oldItem.isFavorite() == newItem.isFavorite() &&
+                    Objects.equals(oldItem.getVideoPath(), newItem.getVideoPath());
+        }
+    };
+
+    public RecipeAdapter(OnRecipeClickListener listener) {
+        super(DIFF_CALLBACK);
+        this.listener = listener;
     }
 
     @NonNull
@@ -38,13 +55,8 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.RecipeView
 
     @Override
     public void onBindViewHolder(@NonNull RecipeViewHolder holder, int position) {
-        RecipeEntity recipe = recipeList.get(position);
+        RecipeEntity recipe = getItem(position);
         holder.bind(recipe, listener);
-    }
-
-    @Override
-    public int getItemCount() {
-        return recipeList != null ? recipeList.size() : 0;
     }
 
     static class RecipeViewHolder extends RecyclerView.ViewHolder {

@@ -51,7 +51,7 @@ public class MainActivity extends BaseActivity {
 
         // Setup RecyclerView
         rvRecipes.setLayoutManager(new LinearLayoutManager(this));
-        recipeAdapter = new RecipeAdapter(new ArrayList<>(), recipe -> {
+        recipeAdapter = new RecipeAdapter(recipe -> {
             Intent intent = new Intent(MainActivity.this, RecipeDetailActivity.class);
             intent.putExtra("RECIPE_ID", recipe.getId());
             startActivity(intent);
@@ -178,7 +178,7 @@ public class MainActivity extends BaseActivity {
             }
         }
 
-        recipeAdapter.updateList(filtered);
+        recipeAdapter.submitList(filtered);
         updateRecipeListVisibility(filtered);
     }
 

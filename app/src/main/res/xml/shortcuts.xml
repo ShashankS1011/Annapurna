@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <shortcut
+        android:shortcutId="add_recipe"
+        android:enabled="true"
+        android:icon="@android:drawable/ic_input_add"
+        android:shortcutLongLabel="@string/shortcut_add_recipe_long"
+        android:shortcutShortLabel="@string/shortcut_add_recipe_short">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetClass="com.example.annapurna.AddRecipeActivity"
+            android:targetPackage="com.example.annapurna" />
+    </shortcut>
+
+    <shortcut
+        android:shortcutId="grocery_list"
+        android:enabled="true"
+        android:icon="@android:drawable/ic_menu_agenda"
+        android:shortcutLongLabel="@string/shortcut_grocery_long"
+        android:shortcutShortLabel="@string/shortcut_grocery_short">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetClass="com.example.annapurna.GroceryListActivity"
+            android:targetPackage="com.example.annapurna" />
+    </shortcut>
+
+</shortcuts>

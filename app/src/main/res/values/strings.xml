@@ -45,4 +45,10 @@
 
     <string name="about_annapurna_title">Mata Annapurna</string>
     <string name="about_annapurna_desc">Named after Goddess Annapurna—the Hindu deity of food, nourishment, and abundance. In Sanskrit, \'Anna\' means food and \'Purna\' means complete. She represents the divine blessing that no home or kitchen should ever go hungry.</string>
+
+    <!-- Launcher App Shortcuts -->
+    <string name="shortcut_add_recipe_short">Add Recipe</string>
+    <string name="shortcut_add_recipe_long">Add New Family Recipe</string>
+    <string name="shortcut_grocery_short">Grocery List</string>
+    <string name="shortcut_grocery_long">Smart Grocery Shopping List</string>
 </resources>

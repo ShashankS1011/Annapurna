@@ -45,4 +45,10 @@
 
     <string name="about_annapurna_title">माता अन्नपूर्णा</string>
     <string name="about_annapurna_desc">अन्नपूर्णा देवी—भोजन, पोषण और समृद्धि की हिंदू देवी के नाम पर। संस्कृत में \'अन्न\' का अर्थ भोजन और \'पूर्णा\' का अर्थ पूर्ण है। वह इस दिव्य आशीर्वाद का प्रतीक हैं कि कोई भी घर या रसोई कभी भूखी न रहे।</string>
+
+    <!-- Launcher App Shortcuts -->
+    <string name="shortcut_add_recipe_short">नया व्यंजन</string>
+    <string name="shortcut_add_recipe_long">नया पारिवारिक व्यंजन जोड़ें</string>
+    <string name="shortcut_grocery_short">किराना लिस्ट</string>
+    <string name="shortcut_grocery_long">स्मार्ट किराना शॉपिंग लिस्ट</string>
 </resources>

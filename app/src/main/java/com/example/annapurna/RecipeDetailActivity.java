@@ -52,8 +52,8 @@ public class RecipeDetailActivity extends BaseActivity {
     // View References
     private ImageView btnBack;
     private ImageButton btnFavorite, btnShare;
-    private TextView txtTitle, txtChef, txtCategory, txtSecretTip, txtNotes, txtInstructions;
-    private View cardSecretTip, cardNotes;
+    private TextView txtTitle, txtChef, txtCategory, txtSecretTip, txtNotes, txtInstructions, txtNutrition;
+    private View cardSecretTip, cardNotes, cardNutrition;
 
     // Checklist, Servings & Timer References
     private LinearLayout layoutIngredientsContainer;
@@ -216,6 +216,8 @@ public class RecipeDetailActivity extends BaseActivity {
 
         cardSecretTip = findViewById(R.id.cardSecretTip);
         cardNotes = findViewById(R.id.cardNotes);
+        cardNutrition = findViewById(R.id.cardNutrition);
+        txtNutrition = findViewById(R.id.txtDetailNutrition);
 
         layoutIngredientsContainer = findViewById(R.id.layoutIngredientsContainer);
         txtTimerDisplay = findViewById(R.id.txtTimerDisplay);
@@ -362,6 +364,28 @@ public class RecipeDetailActivity extends BaseActivity {
             if (txtSecretTip != null) txtSecretTip.setText(recipe.getSecretTip());
         } else if (cardSecretTip != null) {
             cardSecretTip.setVisibility(View.GONE);
+        }
+
+        // Nutrition Card
+        StringBuilder nutStr = new StringBuilder();
+        if (recipe.getCalories() != null && !recipe.getCalories().trim().isEmpty()) {
+            nutStr.append("Calories: ").append(recipe.getCalories()).append(" kcal   ");
+        }
+        if (recipe.getProtein() != null && !recipe.getProtein().trim().isEmpty()) {
+            nutStr.append("Protein: ").append(recipe.getProtein()).append("g   ");
+        }
+        if (recipe.getCarbs() != null && !recipe.getCarbs().trim().isEmpty()) {
+            nutStr.append("Carbs: ").append(recipe.getCarbs()).append("g   ");
+        }
+        if (recipe.getFats() != null && !recipe.getFats().trim().isEmpty()) {
+            nutStr.append("Fats: ").append(recipe.getFats()).append("g");
+        }
+
+        if (nutStr.length() > 0) {
+            if (cardNutrition != null) cardNutrition.setVisibility(View.VISIBLE);
+            if (txtNutrition != null) txtNutrition.setText(nutStr.toString().trim());
+        } else if (cardNutrition != null) {
+            cardNutrition.setVisibility(View.GONE);
         }
 
         // Cooking Notes Card

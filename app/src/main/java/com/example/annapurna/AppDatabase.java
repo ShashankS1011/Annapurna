@@ -6,8 +6,8 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-// Incremented version from 1 to 2 to trigger migration for new fields
-@Database(entities = {RecipeEntity.class}, version = 2, exportSchema = false)
+// Incremented version to 3 for new nutrition fields
+@Database(entities = {RecipeEntity.class}, version = 3, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
 
     public abstract RecipeDao recipeDao();

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- App Information -->
+    <string name="app_name">अन्नपूर्णा</string>
+    <string name="app_tagline">घर के स्वाद की अपनी किताब।</string>
+    <string name="developer">शशांक सिंह द्वारा निर्मित</string>
+
+    <!-- Splash & About Screen -->
+    <string name="splash_tagline">पारिवारिक व्यंजनों की धरोहर का संरक्षण</string>
+    <string name="creator_credit">होम शेफ के लिए \u2764\uFE0F से निर्मित</string>
+    <string name="title_about">अन्नपूर्णा के बारे में</string>
+
+    <!-- Greetings -->
+    <string name="good_morning">शुभ प्रभात</string>
+    <string name="good_afternoon">शुभ दोपहर</string>
+    <string name="good_evening">शुभ संध्या</string>
+    <string name="good_night">शुभ रात्रि</string>
+
+    <!-- Home Screen -->
+    <string name="search_recipes">व्यंजन खोजें...</string>
+    <string name="categories">श्रेणियाँ</string>
+    <string name="recently_added">हाल ही में जोड़े गए</string>
+
+    <!-- New Recipe Screen -->
+    <string name="title_new_recipe">नया व्यंजन</string>
+    <string name="btn_new_recipe">नया व्यंजन</string>
+    <string name="hint_recipe_name">व्यंजन का नाम (उदा. दादी की मसाला चाय)</string>
+    <string name="hint_chef_name">शेफ का नाम (उदा. मम्मी, दादी, आप)</string>
+    <string name="hint_category">श्रेणी (उदा. नाश्ता, मिठाई, करी)</string>
+    <string name="hint_secret_tip">मम्मी का सीक्रेट नुस्खा (वैकल्पिक)</string>
+    <string name="btn_select_video">कुकिंग वीडियो चुनें</string>
+    <string name="btn_save_recipe">व्यंजन सहेजें</string>
+
+    <!-- Settings Screen -->
+    <string name="title_settings">सेटिंग्स</string>
+    <string name="settings_theme_header">किचन थीम</string>
+    <string name="settings_backup_header">बैकअप और रिस्टोर</string>
+    <string name="btn_export_json">व्यंजन निर्यात करें (JSON)</string>
+    <string name="btn_import_json">व्यंजन आयात करें (JSON)</string>
+
+    <!-- Content Descriptions -->
+    <string name="search_icon">खोजें</string>
+    <string name="desc_new_recipe">नया व्यंजन बनाएं</string>
+
+    <string name="about_annapurna_title">माता अन्नपूर्णा</string>
+    <string name="about_annapurna_desc">अन्नपूर्णा देवी—भोजन, पोषण और समृद्धि की हिंदू देवी के नाम पर। संस्कृत में \'अन्न\' का अर्थ भोजन और \'पूर्णा\' का अर्थ पूर्ण है। वह इस दिव्य आशीर्वाद का प्रतीक हैं कि कोई भी घर या रसोई कभी भूखी न रहे।</string>
+</resources>

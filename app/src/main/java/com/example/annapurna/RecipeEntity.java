@@ -28,6 +28,12 @@ public class RecipeEntity {
     private String ingredients;
     private String instructions;
 
+    // NEW FIELDS FOR NUTRITION SUMMARY
+    private String calories;
+    private String protein;
+    private String carbs;
+    private String fats;
+
     // Required by Room
     public RecipeEntity() {
         this.videoSource = LinkParserUtil.SOURCE_LOCAL;
@@ -169,4 +175,17 @@ public class RecipeEntity {
     public void setInstructions(String instructions) {
         this.instructions = instructions;
     }
+
+    // GETTERS AND SETTERS FOR NUTRITION
+    public String getCalories() { return calories; }
+    public void setCalories(String calories) { this.calories = calories; }
+
+    public String getProtein() { return protein; }
+    public void setProtein(String protein) { this.protein = protein; }
+
+    public String getCarbs() { return carbs; }
+    public void setCarbs(String carbs) { this.carbs = carbs; }
+
+    public String getFats() { return fats; }
+    public void setFats(String fats) { this.fats = fats; }
 }

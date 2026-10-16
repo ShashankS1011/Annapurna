@@ -29,6 +29,7 @@ public class AddRecipeActivity extends AppCompatActivity {
     // View References
     private ImageView btnBack, imgVideoPreview;
     private TextInputEditText editRecipeName, editChefName, editSecretTip, editOccasion, editNotes, editVideoUrl;
+    private TextInputEditText editCalories, editProtein, editCarbs, editFats;
     private Spinner spinnerCategory;
     private TextView txtDetectedSource, txtSelectedVideoPath;
     private Button btnSelectVideo, btnSaveRecipe;
@@ -139,6 +140,11 @@ public class AddRecipeActivity extends AppCompatActivity {
         editOccasion = findViewById(R.id.editOccasion);
         editNotes = findViewById(R.id.editNotes);
 
+        editCalories = findViewById(R.id.editCalories);
+        editProtein = findViewById(R.id.editProtein);
+        editCarbs = findViewById(R.id.editCarbs);
+        editFats = findViewById(R.id.editFats);
+
         editVideoUrl = findViewById(R.id.editVideoUrl);
         txtDetectedSource = findViewById(R.id.txtDetectedSource);
         cardVideoPicker = findViewById(R.id.cardVideoPicker);
@@ -166,6 +172,11 @@ public class AddRecipeActivity extends AppCompatActivity {
                 editSecretTip.setText(recipe.getSecretTip());
                 editOccasion.setText(recipe.getOccasion());
                 editNotes.setText(recipe.getCookingNotes());
+
+                if (editCalories != null) editCalories.setText(recipe.getCalories());
+                if (editProtein != null) editProtein.setText(recipe.getProtein());
+                if (editCarbs != null) editCarbs.setText(recipe.getCarbs());
+                if (editFats != null) editFats.setText(recipe.getFats());
 
                 // Set Spinner Category
                 ArrayAdapter adapter = (ArrayAdapter) spinnerCategory.getAdapter();
@@ -253,6 +264,11 @@ public class AddRecipeActivity extends AppCompatActivity {
         String occasion = editOccasion.getText() != null ? editOccasion.getText().toString().trim() : "";
         String notes = editNotes.getText() != null ? editNotes.getText().toString().trim() : "";
 
+        String calories = editCalories != null && editCalories.getText() != null ? editCalories.getText().toString().trim() : "";
+        String protein = editProtein != null && editProtein.getText() != null ? editProtein.getText().toString().trim() : "";
+        String carbs = editCarbs != null && editCarbs.getText() != null ? editCarbs.getText().toString().trim() : "";
+        String fats = editFats != null && editFats.getText() != null ? editFats.getText().toString().trim() : "";
+
         if (name.isEmpty()) {
             editRecipeName.setError("Recipe title is required");
             editRecipeName.requestFocus();
@@ -272,6 +288,11 @@ public class AddRecipeActivity extends AppCompatActivity {
         recipe.setSecretTip(secretTip);
         recipe.setOccasion(occasion);
         recipe.setCookingNotes(notes);
+
+        recipe.setCalories(calories);
+        recipe.setProtein(protein);
+        recipe.setCarbs(carbs);
+        recipe.setFats(fats);
 
         recipe.setVideoPath(selectedVideoPath);
         recipe.setVideoSource(currentVideoSource);

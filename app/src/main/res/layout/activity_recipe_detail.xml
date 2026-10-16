@@ -146,6 +146,39 @@
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
+                <!-- Nutrition Information Card -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardNutrition"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:visibility="gone"
+                    app:cardBackgroundColor="#1E1E1E"
+                    app:cardCornerRadius="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="12dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🥗 Nutritional Info (per serving)"
+                            android:textColor="#4CAF50"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/txtDetailNutrition"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:textColor="#EEEEEE"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
                 <!-- Cooking Timer Widget -->
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"

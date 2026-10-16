@@ -102,13 +102,83 @@
             android:textSize="14sp" />
     </com.google.android.material.card.MaterialCardView>
 
+    <!-- Horizontal Category Filter Chips -->
+    <HorizontalScrollView
+        android:id="@+id/scrollCategoryChips"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cardSearch"
+        android:layout_marginBottom="8dp"
+        android:clipToPadding="false"
+        android:paddingHorizontal="16dp"
+        android:scrollbars="none">
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chipGroupCategories"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:singleLine="true"
+            app:singleSelection="true">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipAll"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="All" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipFavorites"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="⭐ Favorites" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipBreakfast"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Breakfast" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipMainCourse"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Main Course" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipSweets"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sweets" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipSnacks"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Snacks" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipBeverages"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Beverages" />
+        </com.google.android.material.chip.ChipGroup>
+    </HorizontalScrollView>
+
     <!-- Recipe List -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvRecipes"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@id/fabAddRecipe"
-        android:layout_below="@id/cardSearch"
+        android:layout_below="@id/scrollCategoryChips"
         android:clipToPadding="false"
         android:padding="12dp" />
 

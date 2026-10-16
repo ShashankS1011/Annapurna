@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.chip.ChipGroup;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
@@ -32,6 +33,7 @@ public class MainActivity extends BaseActivity {
 
     private RecipeAdapter recipeAdapter;
     private List<RecipeEntity> fullRecipeList = new ArrayList<>();
+    private String selectedCategory = "ALL";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,6 +88,29 @@ public class MainActivity extends BaseActivity {
             });
         }
 
+        // Category Filter Chips Listener
+        ChipGroup chipGroupCategories = findViewById(R.id.chipGroupCategories);
+        if (chipGroupCategories != null) {
+            chipGroupCategories.setOnCheckedChangeListener((group, checkedId) -> {
+                if (checkedId == R.id.chipFavorites) {
+                    selectedCategory = "FAVORITES";
+                } else if (checkedId == R.id.chipBreakfast) {
+                    selectedCategory = "Breakfast";
+                } else if (checkedId == R.id.chipMainCourse) {
+                    selectedCategory = "Main Course";
+                } else if (checkedId == R.id.chipSweets) {
+                    selectedCategory = "Sweets";
+                } else if (checkedId == R.id.chipSnacks) {
+                    selectedCategory = "Snacks";
+                } else if (checkedId == R.id.chipBeverages) {
+                    selectedCategory = "Beverages";
+                } else {
+                    selectedCategory = "ALL";
+                }
+                filterRecipes(etSearch.getText().toString());
+            });
+        }
+
         // Live Search Filter Listener
         etSearch.addTextChangedListener(new TextWatcher() {
             @Override public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
@@ -126,31 +151,29 @@ public class MainActivity extends BaseActivity {
             fullRecipeList = db.recipeDao().getAllRecipesList();
 
             runOnUiThread(() -> {
-                String currentQuery = etSearch.getText().toString();
-                if (!currentQuery.isEmpty()) {
-                    filterRecipes(currentQuery);
-                } else {
-                    recipeAdapter.updateList(fullRecipeList);
-                    updateRecipeListVisibility(fullRecipeList);
-                }
+                filterRecipes(etSearch.getText().toString());
             });
         }).start();
     }
 
     private void filterRecipes(String query) {
-        if (query.trim().isEmpty()) {
-            recipeAdapter.updateList(fullRecipeList);
-            updateRecipeListVisibility(fullRecipeList);
-            return;
-        }
-
-        List<RecipeEntity> filtered = new ArrayList<>();
         String lowerQuery = query.toLowerCase().trim();
+        List<RecipeEntity> filtered = new ArrayList<>();
 
         for (RecipeEntity r : fullRecipeList) {
-            if ((r.getName() != null && r.getName().toLowerCase().contains(lowerQuery)) ||
+            boolean matchesCategory = true;
+            if ("FAVORITES".equals(selectedCategory)) {
+                matchesCategory = r.isFavorite();
+            } else if (!"ALL".equals(selectedCategory)) {
+                matchesCategory = r.getCategory() != null && r.getCategory().equalsIgnoreCase(selectedCategory);
+            }
+
+            boolean matchesSearch = lowerQuery.isEmpty() ||
+                    (r.getName() != null && r.getName().toLowerCase().contains(lowerQuery)) ||
                     (r.getChef() != null && r.getChef().toLowerCase().contains(lowerQuery)) ||
-                    (r.getCategory() != null && r.getCategory().toLowerCase().contains(lowerQuery))) {
+                    (r.getCategory() != null && r.getCategory().toLowerCase().contains(lowerQuery));
+
+            if (matchesCategory && matchesSearch) {
                 filtered.add(r);
             }
         }

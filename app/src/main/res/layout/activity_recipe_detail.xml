@@ -189,6 +189,59 @@
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
+                <!-- Serving Size Scaler Container -->
+                <LinearLayout
+                    android:id="@+id/layoutServingScaler"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="#1E1E1E"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="12dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Serving Size:"
+                        android:textColor="#FFFFFF"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/btnDecreaseServings"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="#333333"
+                        android:text="-"
+                        android:textColor="#FFFFFF"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txtServingCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="12dp"
+                        android:text="2 Servings"
+                        android:textColor="#FF9800"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/btnIncreaseServings"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="#333333"
+                        android:text="+"
+                        android:textColor="#FFFFFF"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
                 <!-- Ingredients Checklist -->
                 <TextView
                     android:id="@+id/lblIngredients"

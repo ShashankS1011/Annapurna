@@ -55,11 +55,14 @@ public class RecipeDetailActivity extends BaseActivity {
     private TextView txtTitle, txtChef, txtCategory, txtSecretTip, txtNotes, txtInstructions;
     private View cardSecretTip, cardNotes;
 
-    // Checklist & Timer References
+    // Checklist, Servings & Timer References
     private LinearLayout layoutIngredientsContainer;
     private TextView txtTimerDisplay;
     private Button btnStartTimer, btnResetTimer;
     private Button btnEditRecipe, btnOpenExternal, btnDeleteRecipe;
+    private int servingCount = 2;
+    private TextView txtServingCount;
+    private Button btnDecreaseServings, btnIncreaseServings;
 
     // Timer Variables
     private final Handler timerHandler = new Handler(Looper.getMainLooper());
@@ -219,6 +222,10 @@ public class RecipeDetailActivity extends BaseActivity {
         btnStartTimer = findViewById(R.id.btnStartTimer);
         btnResetTimer = findViewById(R.id.btnResetTimer);
 
+        txtServingCount = findViewById(R.id.txtServingCount);
+        btnDecreaseServings = findViewById(R.id.btnDecreaseServings);
+        btnIncreaseServings = findViewById(R.id.btnIncreaseServings);
+
         btnEditRecipe = findViewById(R.id.btnEditRecipe);
         btnOpenExternal = findViewById(R.id.btnOpenExternal);
         btnDeleteRecipe = findViewById(R.id.btnDeleteRecipe);
@@ -230,8 +237,32 @@ public class RecipeDetailActivity extends BaseActivity {
         setupListeners();
     }
 
+    private void updateServingDisplay() {
+        if (txtServingCount != null) {
+            txtServingCount.setText(servingCount + " Servings");
+        }
+    }
+
     private void setupListeners() {
         if (btnBack != null) btnBack.setOnClickListener(v -> finish());
+
+        if (btnDecreaseServings != null) {
+            btnDecreaseServings.setOnClickListener(v -> {
+                if (servingCount > 1) {
+                    servingCount--;
+                    updateServingDisplay();
+                }
+            });
+        }
+
+        if (btnIncreaseServings != null) {
+            btnIncreaseServings.setOnClickListener(v -> {
+                if (servingCount < 50) {
+                    servingCount++;
+                    updateServingDisplay();
+                }
+            });
+        }
 
         if (btnFavorite != null) {
             btnFavorite.setOnClickListener(v -> {
